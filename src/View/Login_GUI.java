@@ -22,6 +22,8 @@ import java.awt.event.MouseEvent;
 public class Login_GUI extends JFrame {
 
 	public JPanel contentPane;
+	public JPanel login_panel;
+	public JPanel register_panel;
 	public JTextField username_login;
 	public JPasswordField password_login;
 	public JTextField username_register;
@@ -53,13 +55,15 @@ public class Login_GUI extends JFrame {
 	public Login_GUI() {
 		setVisible(true);
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 443, 401);
+		setBounds(100, 100, 447, 401);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel login_panel = new JPanel();
+		login_panel = new JPanel();
+		login_panel.setBackground(new Color(224, 255, 255));
 		login_panel.setBounds(10, 11, 414, 342);
 		contentPane.add(login_panel);
 		login_panel.setLayout(null);
@@ -87,6 +91,7 @@ public class Login_GUI extends JFrame {
 		login_panel.add(lblNewLabel_1);
 		
 		login_button = new JButton("\u0110\u0103ng nh\u1EADp");
+		login_button.setBackground(new Color(127, 255, 212));
 		login_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -101,12 +106,12 @@ public class Login_GUI extends JFrame {
 		
 		JLabel register_lb = new JLabel("\u0110\u0103ng k\u00FD");
 		
-		JPanel register_panel = new JPanel();
+		register_panel = new JPanel();
+		register_panel.setBackground(new Color(224, 255, 255));
 		register_lb.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				login_panel.setVisible(false);
-				register_panel.setVisible(true);
+				viewRegister();
 			}
 		});
 		register_lb.setForeground(Color.RED);
@@ -142,10 +147,12 @@ public class Login_GUI extends JFrame {
 		register_panel.add(lblNewLabel_1_1);
 		
 		register_button = new JButton("\u0110\u0103ng k\u00FD");
+		register_button.setBackground(new Color(127, 255, 212));
 		register_button.setBounds(157, 300, 110, 23);
 		register_panel.add(register_button);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("\u0110\u0103ng k\u00FD t\u00E0i kho\u1EA3n", SwingConstants.CENTER);
+		lblNewLabel_2_1.setBackground(new Color(224, 255, 255));
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2_1.setBounds(10, 11, 394, 30);
 		register_panel.add(lblNewLabel_2_1);
@@ -162,8 +169,7 @@ public class Login_GUI extends JFrame {
 		login_lb.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				login_panel.setVisible(true);
-				register_panel.setVisible(false);
+				viewLogin();
 			}
 		});
 		login_lb.setForeground(Color.RED);
@@ -190,6 +196,16 @@ public class Login_GUI extends JFrame {
 		register_panel.add(age_register);
 		setResizable(false);
 		setLocationRelativeTo(null);
+	}
+	
+	public void viewRegister() {
+		login_panel.setVisible(false);
+		register_panel.setVisible(true);
+	}
+	
+	public void viewLogin() {
+		login_panel.setVisible(true);
+		register_panel.setVisible(false);
 	}
 	
 	public void notification(String message) {

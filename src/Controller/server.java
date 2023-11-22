@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.swing.JOptionPane;
+
 import Model.Server_Model;
 import View.Server_GUI;
 
@@ -22,6 +24,7 @@ public class server {
 					String text = server_GUI.port_tf.getText();
 					int port = Integer.parseInt(text);
 					new Server_Model(port);
+					server_GUI.setOn();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

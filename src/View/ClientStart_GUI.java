@@ -26,6 +26,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class ClientStart_GUI extends JFrame {
 
@@ -34,7 +35,7 @@ public class ClientStart_GUI extends JFrame {
 	public JTextField port;
 	public JButton btstart ;
 	public Timer slide_timer;
-	public int Nslide = 3;
+	public int Nslide = 4;
 	public int indexSlide = 1;
 
 	/**
@@ -58,13 +59,15 @@ public class ClientStart_GUI extends JFrame {
 	 */
 	public ClientStart_GUI() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 460, 341);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(224, 255, 255));
 		panel.setBounds(10, 0, 414, 46);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -75,33 +78,37 @@ public class ClientStart_GUI extends JFrame {
 		panel.add(lbIPv4);
 		
 		tf_IPv4 = new JTextField("localhost");
-		tf_IPv4.setBounds(46, 13, 144, 22);
+		tf_IPv4.setBackground(new Color(248, 248, 255));
+		tf_IPv4.setBounds(46, 13, 125, 22);
 		panel.add(tf_IPv4);
 		tf_IPv4.setColumns(10);
 		
 		JLabel lbPort = new JLabel("Port: ");
 		lbPort.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lbPort.setBounds(200, 12, 48, 22);
+		lbPort.setBounds(181, 12, 48, 22);
 		panel.add(lbPort);
 		
 		port = new JTextField("3333");
-		port.setBounds(239, 13, 92, 24);
+		port.setBackground(new Color(248, 248, 255));
+		port.setBounds(218, 13, 92, 24);
 		panel.add(port);
 		port.setColumns(10);
 		
 		btstart = new JButton("Start");
+		btstart.setBackground(new Color(127, 255, 212));
 		btstart.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btstart.setBounds(341, 11, 63, 24);
+		btstart.setBounds(320, 11, 84, 28);
 		panel.add(btstart);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 57, 414, 193);
+		panel_1.setBackground(new Color(224, 255, 255));
+		panel_1.setBounds(10, 57, 414, 234);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JButton slide = new JButton("New button");
-		slide.setBounds(10, 5, 394, 188);
-		slide.setIcon(getIcon("slide1", slide.getWidth(), slide.getHeight()));
+		slide.setBounds(10, 0, 404, 223);
+		slide.setIcon(getIcon("slide1", slide.getWidth() + 100, slide.getHeight()));
 		
 		panel_1.add(slide);
 		setLocationRelativeTo(null);
@@ -115,10 +122,12 @@ public class ClientStart_GUI extends JFrame {
 				indexSlide ++;
 				if (indexSlide > Nslide)
 					indexSlide = 1;
-				slide.setIcon(getIcon("slide" + indexSlide , slide.getWidth(), slide.getHeight()));
+				slide.setIcon(getIcon("slide" + indexSlide , slide.getWidth() + 100, slide.getHeight()));
 			}
 		});
 		slide_timer.start();
+		setLocationRelativeTo(null);
+		setResizable(false);
 	}
 	private Icon getIcon(String name, int width, int height) {
 		Image image = new ImageIcon(getClass().getResource("/image/" + name + ".png")).getImage();

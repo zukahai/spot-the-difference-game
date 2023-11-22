@@ -85,7 +85,7 @@ public class client extends Thread{
 	public void addAction() {
 		for (int i = 0; i < client_Model.getN(); i++)
 			for (int j = 0; j < client_Model.getN(); j++) {
-				client_GUI.BT[i][j].addActionListener(new ActionListener() {
+				client_GUI.board[i][j].addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -94,7 +94,7 @@ public class client extends Thread{
 					}
 				});
 			}
-		client_GUI.Exit.addActionListener(new ActionListener() {
+		client_GUI.exit_bt.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -105,7 +105,7 @@ public class client extends Thread{
 			}
 		});
 		
-		client_GUI.ListUser.addActionListener(new ActionListener() {
+		client_GUI.listUser_bt.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -164,6 +164,7 @@ public class client extends Thread{
 				
 				if (client_Model.getRegister() == 1) {
 					login_GUI.notification("Register success!");
+					login_GUI.viewLogin();
 					client_Model.setRegister(0);
 				}
 			}

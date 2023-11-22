@@ -16,6 +16,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
+import javax.swing.SwingConstants;
 
 public class Block_GUI extends JFrame {
 	public Timer slide_timer;
@@ -44,23 +45,33 @@ public class Block_GUI extends JFrame {
 	 */
 	public Block_GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 725, 504);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(224, 255, 255));
+		contentPane.setForeground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
 		JButton btnNewButton = new JButton();
-		btnNewButton.setBounds(81, 36, 289, 214);
+		btnNewButton.setBounds(10, 81, 687, 373);
 		btnNewButton.setBackground(Color.PINK);
 		btnNewButton.setText("You are blocked :))");
 		btnNewButton.setIcon(getIcon("slide1", btnNewButton.getWidth(), btnNewButton.getHeight()));
 		contentPane.setLayout(null);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("You are block ");
-		lblNewLabel.setFont(new Font("Cambria Math", Font.PLAIN, 20));
-		lblNewLabel.setBounds(137, 11, 194, 24);
+		JLabel lblNewLabel = new JLabel("You have chosen incorrectly.");
+		lblNewLabel.setForeground(new Color(255, 0, 0));
+		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel.setFont(new Font("Cambria Math", Font.BOLD, 20));
+		lblNewLabel.setBounds(203, 11, 652, 24);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblPleaseWaitFor = new JLabel("Please wait for someone else to choose correctly to continue the game");
+		lblPleaseWaitFor.setForeground(new Color(0, 100, 0));
+		lblPleaseWaitFor.setFont(new Font("Cambria Math", Font.BOLD, 20));
+		lblPleaseWaitFor.setBounds(32, 46, 652, 24);
+		contentPane.add(lblPleaseWaitFor);
 		setVisible(true);
 
 		slide_timer = new Timer(1500, new ActionListener() {
@@ -75,6 +86,8 @@ public class Block_GUI extends JFrame {
 			}
 		});
 		slide_timer.start();
+		setLocationRelativeTo(null);
+		setResizable(false);
 		
 	}
 	private Icon getIcon(String name, int width, int height) {
@@ -82,6 +95,4 @@ public class Block_GUI extends JFrame {
 		Icon icon = new ImageIcon(image.getScaledInstance(width, height, image.SCALE_SMOOTH));
 		return icon;
 	}
-	
-
 }

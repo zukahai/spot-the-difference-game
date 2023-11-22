@@ -73,7 +73,14 @@ public class Connect {
 			} catch (Exception e2) {
 				// TODO: handle exception
 				e2.printStackTrace();
-			}
+			} finally {
+	            try {
+	                if (conn != null) conn.close();
+	                if (ps != null) ps.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
 		}
 		return record;
 	}
@@ -98,9 +105,39 @@ public class Connect {
 		return rs;
 	
 	}
-	public static void main(String [] agrs) {
-		new Connect().connect();
-	}
+	public void deleteAllData() {
+        try {
+            conn = connect();
+
+            // Xoá hết dữ liệu từ bảng `account`
+            String deleteAccountDataSQL = "DELETE FROM account;";
+            ps = conn.prepareStatement(deleteAccountDataSQL);
+            ps.executeUpdate();
+
+            // Xoá hết dữ liệu từ bảng `information`
+            String deleteInformationDataSQL = "DELETE FROM information;";
+            ps = conn.prepareStatement(deleteInformationDataSQL);
+            ps.executeUpdate();
+
+            System.out.println("Đã xoá hết dữ liệu từ cả hai bảng.");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) conn.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Connect connector = new Connect();
+
+        // Gọi hàm để xoá hết dữ liệu trong cả hai bảng
+        connector.deleteAllData();
+    }
 
 
 

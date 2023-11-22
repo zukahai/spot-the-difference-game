@@ -16,9 +16,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Client_GUI extends JFrame{
-	public JButton BT[][] = new JButton[100][100];
-	public JButton ListUser;
-	public JButton Exit;
+	public JButton board[][] = new JButton[100][100];
+	public JButton listUser_bt;
+	public JButton exit_bt;
 	public Panel p = new Panel();
 	Container cont;
 	JFrame client;
@@ -34,23 +34,25 @@ public class Client_GUI extends JFrame{
 		
 		for(int i = 0; i<n; i++) {
 			for(int j = 0; j < n; j++) {
-				BT[i][j] = new JButton();
-				BT[i][j].setActionCommand(i + " " + j);
-				BT[i][j].setIcon(getIcon(color, 1, (size) / n));
-				BT[i][j].setBorder(null);
-				p.add(BT[i][j]);
+				board[i][j] = new JButton();
+				board[i][j].setActionCommand(i + " " + j);
+				board[i][j].setIcon(getIcon(color, 1, (size) / n));
+				board[i][j].setBorder(null);
+				p.add(board[i][j]);
 			}
 		}
-		BT[x][y].setIcon(getIcon(color, 2, (size) / n));
+		board[x][y].setIcon(getIcon(color, 2, (size) / n));
 		
 		cont.add(p);
 		
 		Panel p1 = new Panel();
 		p1.setLayout(new FlowLayout());
-		ListUser = new JButton("BXH");
-		Exit = new JButton("Exit");
-		p1.add(Exit);
-		p1.add(ListUser);
+		listUser_bt = new JButton("BXH");
+		listUser_bt.setBackground(new Color(127, 255, 212));
+		exit_bt = new JButton("Exit");
+		exit_bt.setBackground(new Color(127, 255, 212));
+		p1.add(exit_bt);
+		p1.add(listUser_bt);
 		p1.setLayout(new GridLayout(1,2));
 		cont.add(p1, "North");
 		
