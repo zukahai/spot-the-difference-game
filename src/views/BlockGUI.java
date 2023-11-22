@@ -90,7 +90,7 @@ public class BlockGUI extends JFrame {
 		
 	}
 	private Icon getIcon(String name, int width, int height) {
-		Image image = new ImageIcon(getClass().getResource("/image/" + name + ".png")).getImage();
+		Image image = new ImageIcon(getClass().getResource("/images/" + name + ".png")).getImage();
 		Icon icon = new ImageIcon(image.getScaledInstance(width, height, image.SCALE_SMOOTH));
 		return icon;
 	}
