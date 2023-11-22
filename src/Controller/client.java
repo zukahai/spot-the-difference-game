@@ -36,8 +36,6 @@ public class client extends Thread{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				// TODO Auto-generated method stub
 				try {
 					
 					String IPv4 = clientStart_GUI.tf_IPv4.getText();
@@ -47,7 +45,6 @@ public class client extends Thread{
 					login_GUI.setVisible(true);
 					clientStart_GUI.dispose();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -55,22 +52,17 @@ public class client extends Thread{
 		
 		//DataSQL_Model login_Model = new DataSQL_Model();
 		login_GUI.login_button.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				String userName = login_GUI.username_login.getText();
 				String password = login_GUI.password_login.getText();
 				client_Model.login(userName, password);
 			}
 		});
 		
-		
 		login_GUI.register_button.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				String userName = login_GUI.username_register.getText();
 				String password = login_GUI.password_register1.getText();
 				String fullname = login_GUI.name_register.getText();
@@ -78,18 +70,14 @@ public class client extends Thread{
 				client_Model.register(userName, password, fullname, age);
 			}
 		});
-		
-		
 	}
 	
 	public void addAction() {
 		for (int i = 0; i < client_Model.getN(); i++)
 			for (int j = 0; j < client_Model.getN(); j++) {
 				client_GUI.board[i][j].addActionListener(new ActionListener() {
-					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						// TODO Auto-generated method stub
 						client_Model.click(e.getActionCommand());
 					}
 				});
@@ -106,15 +94,11 @@ public class client extends Thread{
 		});
 		
 		client_GUI.listUser_bt.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
 				try {
 					client_Model.Send("BXH");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -172,7 +156,6 @@ public class client extends Thread{
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			

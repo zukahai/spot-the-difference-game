@@ -64,7 +64,7 @@ class WorkThread extends Thread{
 	public int n, x, y, color;
 	Socket socket;
 	ArrayList<Socket> arrayListSocket;
-	private int NumberOfImage = 37;
+	private int NumberOfImage = 54;
 	
 	public WorkThread(Socket socket, JTextArea data) {
 		this.socket = socket;
@@ -92,6 +92,7 @@ class WorkThread extends Thread{
 		x = (int) (Math.random() * 100000) % n;
 		y = (int) (Math.random() * 100000) % n;
 		color = (int)(Math.random()*100000) % NumberOfImage + 1;
+		color=54;
 		return n + " " + x + " " + y + " " + color;
 	}
 	
