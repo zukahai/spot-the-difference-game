@@ -1,16 +1,15 @@
- package Model;
+ package models;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Vector;
 
-public class Client_Model extends Thread{
+public class ClientModel extends Thread{
 	Socket socket;
 	User user;
 	ArrayList<User> arrayListUser = new ArrayList<User>();
@@ -23,7 +22,7 @@ public class Client_Model extends Thread{
 	public boolean loginFailer = false;
 	public int register = 0;
 	public boolean BXH = false;
-	public Client_Model(String IPv4, int port) throws UnknownHostException, IOException {
+	public ClientModel(String IPv4, int port) throws UnknownHostException, IOException {
 		socket = new Socket(IPv4, port);
 		this.start();
 	}
@@ -241,6 +240,6 @@ public class Client_Model extends Thread{
 	}
 
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		Client_Model c = new Client_Model("localhost", 3333);
+		ClientModel c = new ClientModel("localhost", 3333);
 	}
 }

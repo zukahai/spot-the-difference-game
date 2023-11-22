@@ -1,4 +1,4 @@
-package View;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -28,7 +28,7 @@ import javax.swing.Timer;
 import javax.swing.JButton;
 import java.awt.Color;
 
-public class ClientStart_GUI extends JFrame {
+public class ClientStartGUI extends JFrame {
 
 	private JPanel contentPane;
 	public JTextField tf_IPv4;
@@ -45,7 +45,7 @@ public class ClientStart_GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ClientStart_GUI frame = new ClientStart_GUI();
+					ClientStartGUI frame = new ClientStartGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class ClientStart_GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ClientStart_GUI() {
+	public ClientStartGUI() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 341);
 		contentPane = new JPanel();

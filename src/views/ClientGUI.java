@@ -1,4 +1,4 @@
-package View;
+package views;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -15,7 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Client_GUI extends JFrame{
+public class ClientGUI extends JFrame{
 	public JButton board[][] = new JButton[100][100];
 	public JButton listUser_bt;
 	public JButton exit_bt;
@@ -24,7 +24,7 @@ public class Client_GUI extends JFrame{
 	JFrame client;
 	public int size =450;
 	public int n = 4;
-	public Client_GUI(int n, int x, int y, int color) {
+	public ClientGUI(int n, int x, int y, int color) {
 		this.n = n;
 		client = new JFrame("Client");
 		cont = new Container();
@@ -73,9 +73,9 @@ public class Client_GUI extends JFrame{
 		JOptionPane.showMessageDialog(null, message);
 	}
 	
-	public Client_GUI NewGame(int n, int x, int y, int color) {
+	public ClientGUI NewGame(int n, int x, int y, int color) {
 		client.dispose();
-		return new Client_GUI(n, x, y, color);
+		return new ClientGUI(n, x, y, color);
 	}
 	
 	public void setTitle(String title, int Score) {
@@ -89,7 +89,7 @@ public class Client_GUI extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		Client_GUI client_GUI = new  Client_GUI(5, 0, 0,1);
+		ClientGUI client_GUI = new  ClientGUI(5, 0, 0,1);
 //		client_GUI.NewGame(10);
 	}
 }

@@ -1,4 +1,4 @@
-package Model;
+package models;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 import javax.swing.JTextArea;
 
-public class Server_Model extends Thread {
+public class ServerModel extends Thread {
 	ServerSocket serverSocket;
 	ArrayList<Socket> arrayListSocket = new ArrayList<Socket>();
 	ArrayList<WorkThread> arrayListWorkThread = new ArrayList<WorkThread>();
 	JTextArea data = new JTextArea("3 1 1 1");
-	public Server_Model(int port) throws IOException {
+	public ServerModel(int port) throws IOException {
 		serverSocket = new ServerSocket(port);
 		System.out.println("Server starting.....");
 		this.start();
@@ -53,13 +53,13 @@ public class Server_Model extends Thread {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		new Server_Model(3333);
+		new ServerModel(3333);
 	}
 
 }
 
 class WorkThread extends Thread{
-	DataSQL_Model dataSQL_Model = new DataSQL_Model();
+	DataSQLModel dataSQL_Model = new DataSQLModel();
 	JTextArea data;
 	public int n, x, y, color;
 	Socket socket;

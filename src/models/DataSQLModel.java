@@ -1,4 +1,4 @@
-package Model;
+package models;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -9,11 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
-import Controller.client;
-
-public class DataSQL_Model {
+public class DataSQLModel {
 	Connect cn = new Connect();
 
 	Connection conn;
@@ -21,7 +17,7 @@ public class DataSQL_Model {
 	ResultSet rs;
 	PreparedStatement ps;
 
-	public DataSQL_Model() {
+	public DataSQLModel() {
 		conn = new Connect().connect();
 	}
 
@@ -155,7 +151,7 @@ public class DataSQL_Model {
 	}
 
 	public static void main(String[] args) throws UnknownHostException, SQLException, IOException {
-		DataSQL_Model dataSQL_Model = new DataSQL_Model();
+		DataSQLModel dataSQL_Model = new DataSQLModel();
 		ArrayList<User> a = dataSQL_Model.getListUser();
 		for (User u : a)
 			System.out.println(u);

@@ -1,6 +1,5 @@
-package View;
+package views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -18,7 +17,7 @@ import java.awt.Font;
 import java.awt.Image;
 import javax.swing.SwingConstants;
 
-public class Block_GUI extends JFrame {
+public class BlockGUI extends JFrame {
 	public Timer slide_timer;
 	public int Nslide = 3;
 	public int indexSlide = 1;
@@ -31,7 +30,7 @@ public class Block_GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Block_GUI frame = new Block_GUI();
+					BlockGUI frame = new BlockGUI();
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +42,7 @@ public class Block_GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Block_GUI() {
+	public BlockGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 725, 504);
 		contentPane = new JPanel();
@@ -72,7 +71,7 @@ public class Block_GUI extends JFrame {
 		lblPleaseWaitFor.setFont(new Font("Cambria Math", Font.BOLD, 20));
 		lblPleaseWaitFor.setBounds(32, 46, 652, 24);
 		contentPane.add(lblPleaseWaitFor);
-		setVisible(true);
+		// setVisible(true);
 
 		slide_timer = new Timer(1500, new ActionListener() {
 			

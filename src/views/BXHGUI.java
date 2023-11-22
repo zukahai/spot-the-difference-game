@@ -1,4 +1,4 @@
-package View;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,7 +13,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-public class BXH_GUI extends JFrame {
+public class BXHGUI extends JFrame {
 
     private JPanel contentPane;
     private JTable table;
@@ -24,7 +24,7 @@ public class BXH_GUI extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    BXH_GUI frame = new BXH_GUI();
+                    BXHGUI frame = new BXHGUI();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -32,8 +32,8 @@ public class BXH_GUI extends JFrame {
         });
     }
 
-    public BXH_GUI() {
-        setVisible(true);
+    public BXHGUI() {
+        // setVisible(true);
         setBounds(100, 100, 578, 420);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(224, 255, 255));

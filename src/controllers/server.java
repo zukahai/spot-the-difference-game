@@ -1,4 +1,4 @@
-package Controller;
+package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,14 +6,12 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import javax.swing.JOptionPane;
-
-import Model.Server_Model;
-import View.Server_GUI;
+import models.ServerModel;
+import views.ServerGUI;
 
 public class server {
 	public server(){
-		Server_GUI server_GUI = new Server_GUI();
+		ServerGUI server_GUI = new ServerGUI();
 		server_GUI.IP_lb.setText("IPv4: " + getIPv4());
 		server_GUI.start.addActionListener(new ActionListener() {
 			
@@ -23,7 +21,7 @@ public class server {
 				try {
 					String text = server_GUI.port_tf.getText();
 					int port = Integer.parseInt(text);
-					new Server_Model(port);
+					new ServerModel(port);
 					server_GUI.setOn();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block

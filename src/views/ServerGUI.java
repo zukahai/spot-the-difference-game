@@ -1,4 +1,4 @@
-package View;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 
-public class Server_GUI extends JFrame {
+public class ServerGUI extends JFrame {
 
 	private JPanel contentPane;
 	public JTextField port_tf;
@@ -37,7 +37,7 @@ public class Server_GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Server_GUI frame = new Server_GUI();
+					ServerGUI frame = new ServerGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,7 +48,7 @@ public class Server_GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Server_GUI() {
+	public ServerGUI() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 723, 493);
 		contentPane = new JPanel();

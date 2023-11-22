@@ -1,4 +1,4 @@
-package Model;
+package models;
 
 import java.io.File;
 
@@ -18,7 +18,7 @@ public class Music {
 			clip.start();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			// e1.printStackTrace();
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package Controller;
+package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,31 +6,31 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.Vector;
 
-import Model.Client_Model;
-import View.BXH_GUI;
-import View.Block_GUI;
-import View.ClientStart_GUI;
-import View.Client_GUI;
-import View.Login_GUI;
+import models.ClientModel;
+import views.BXHGUI;
+import views.BlockGUI;
+import views.ClientStartGUI;
+import views.ClientGUI;
+import views.LoginGUI;
 
 public class client extends Thread{
-	Client_Model client_Model;
-	Client_GUI client_GUI;
-	Block_GUI block_GUI;
-	Login_GUI login_GUI;
-	BXH_GUI bxh_GUI;
-	ClientStart_GUI clientStart_GUI;
+	ClientModel client_Model;
+	ClientGUI client_GUI;
+	BlockGUI block_GUI;
+	LoginGUI login_GUI;
+	BXHGUI bxh_GUI;
+	ClientStartGUI clientStart_GUI;
 	boolean Login = false;
 	public client() throws UnknownHostException, IOException {
-		clientStart_GUI = new ClientStart_GUI();
-		login_GUI = new Login_GUI();
+		clientStart_GUI = new ClientStartGUI();
+		login_GUI = new LoginGUI();
 		login_GUI.setVisible(false);
-		block_GUI = new Block_GUI();
+		block_GUI = new BlockGUI();
 		block_GUI.setVisible(false);
-		client_GUI = new Client_GUI(3, 1, 1, 1);
+		client_GUI = new ClientGUI(3, 1, 1, 1);
 		client_GUI.setVisible(false);
 		
-		bxh_GUI = new BXH_GUI();
+		bxh_GUI = new BXHGUI();
 		bxh_GUI.setVisible(false);
 		clientStart_GUI.btstart.addActionListener(new ActionListener() {
 			
@@ -40,7 +40,7 @@ public class client extends Thread{
 					
 					String IPv4 = clientStart_GUI.tf_IPv4.getText();
 					int port = Integer.parseInt(clientStart_GUI.port.getText());
-					client_Model = new Client_Model(IPv4, port);
+					client_Model = new ClientModel(IPv4, port);
 					start();
 					login_GUI.setVisible(true);
 					clientStart_GUI.dispose();

@@ -1,4 +1,4 @@
-package View;
+package views;
 
 import java.awt.EventQueue;
 
@@ -18,7 +18,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Login_GUI extends JFrame {
+public class LoginGUI extends JFrame {
 
 	public JPanel contentPane;
 	public JPanel login_panel;
@@ -40,7 +40,7 @@ public class Login_GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login_GUI frame = new Login_GUI();
+					LoginGUI frame = new LoginGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,8 +51,8 @@ public class Login_GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login_GUI() {
-		setVisible(true);
+	public LoginGUI() {
+		// setVisible(true);
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 447, 401);
 		contentPane = new JPanel();
