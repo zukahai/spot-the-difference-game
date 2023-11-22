@@ -92,7 +92,6 @@ class WorkThread extends Thread{
 		x = (int) (Math.random() * 100000) % n;
 		y = (int) (Math.random() * 100000) % n;
 		color = (int)(Math.random()*100000) % NumberOfImage + 1;
-		color=54;
 		return n + " " + x + " " + y + " " + color;
 	}
 	

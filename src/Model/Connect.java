@@ -95,8 +95,8 @@ public class Connect {
 		}
 		finally {
 			try {
-				//conn.close();
-				//stmt.close();
+				if (conn != null) conn.close();
+				if (stmt != null) stmt.close();
 			} catch (Exception e2) {
 				// TODO: handle exception
 				e2.printStackTrace();

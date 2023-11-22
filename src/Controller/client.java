@@ -149,6 +149,7 @@ public class client extends Thread{
 				if (client_Model.getRegister() == 1) {
 					login_GUI.notification("Register success!");
 					login_GUI.viewLogin();
+					login_GUI.setTextLogin();
 					client_Model.setRegister(0);
 				}
 			}

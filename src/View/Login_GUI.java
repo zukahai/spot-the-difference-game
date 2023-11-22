@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -206,6 +205,11 @@ public class Login_GUI extends JFrame {
 	public void viewLogin() {
 		login_panel.setVisible(true);
 		register_panel.setVisible(false);
+	}
+
+	public void setTextLogin() {
+		username_login.setText(username_register.getText());
+		password_login.setText(password_register1.getText());
 	}
 	
 	public void notification(String message) {

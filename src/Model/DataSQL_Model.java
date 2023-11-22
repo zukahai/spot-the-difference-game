@@ -27,12 +27,7 @@ public class DataSQL_Model {
 
 	public boolean Login(String Username, String Password) throws SQLException, UnknownHostException, IOException {
 		rs = cn.listAll("Select * from account where Username = '" + Username + "' and Password = '" + Password + "'");
-		if (rs.next()) {
-			return true;
-		} else {
-//			JOptionPane.showMessageDialog(null, "Username or Password incorrect");
-			return false;
-		}
+		return rs.next();
 	}
 
 	public boolean Insert(String Username, String Password, String FullName, int Age) {
@@ -83,10 +78,12 @@ public class DataSQL_Model {
 
 	public ArrayList<User> getListUser() {
 		ArrayList<User> ListUser = new ArrayList<User>();
-		conn = new Connect().connect();
 		String sql = "Select * from information order by Score DESC";
-		rs = cn.listAll(sql);
+		conn = new Connect().connect();
+		
 		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				User user = new User();
 				user.setUsername(rs.getString(1));
@@ -107,11 +104,11 @@ public class DataSQL_Model {
 				e.printStackTrace();
 			}
 		}
-
 		return ListUser;
 	}
 
 	public void increasePoint(String Username) {
+		System.out.println("Update Score @@@@@@@@");
 		conn = new Connect().connect();
 		String sql = "UPDATE information SET Score = Score + 1 WHERE Username = ?";
 		try {
