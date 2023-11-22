@@ -64,7 +64,7 @@ public class ClientGUI extends JFrame{
 	
 	private Icon getIcon(int index, int index2, int size) {
 		int width = size, height = size;
-		Image image = new ImageIcon(getClass().getResource("/image/image" + index + "_" + index2 + ".png")).getImage();
+		Image image = new ImageIcon(getClass().getResource("/images/image" + index + "_" + index2 + ".png")).getImage();
 		Icon icon = new ImageIcon(image.getScaledInstance(width, height, image.SCALE_SMOOTH));
 		return icon;
 	}
