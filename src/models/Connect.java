@@ -13,12 +13,12 @@ public class Connect {
 	Statement stmt;
 	ResultSet rs;
 	PreparedStatement ps;
-	String dbName = "data.db";
+	String pathDB = "data/data.db";
 
 	public Connection connect() {
         try {
         	Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:" + dbName;
+            String url = "jdbc:sqlite:" + pathDB;
             Connection connection = DriverManager.getConnection(url);
             System.out.println("Kết nối đến SQLite đã được thiết lập.");
 //            createTable(connection);
