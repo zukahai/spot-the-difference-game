@@ -1,26 +1,15 @@
 package views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -59,7 +48,8 @@ public class ClientStartGUI extends JFrame {
 	 */
 	public ClientStartGUI() {
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 460, 341);
+		setTitle("Client Start");
+		setBounds(100, 100, 598, 418);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -68,7 +58,7 @@ public class ClientStartGUI extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(224, 255, 255));
-		panel.setBounds(10, 0, 414, 46);
+		panel.setBounds(10, 0, 561, 46);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -94,20 +84,20 @@ public class ClientStartGUI extends JFrame {
 		panel.add(port);
 		port.setColumns(10);
 		
-		btstart = new JButton("Start");
+		btstart = new JButton("Connect");
 		btstart.setBackground(new Color(127, 255, 212));
 		btstart.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btstart.setBounds(320, 11, 84, 28);
+		btstart.setBounds(420, 9, 131, 28);
 		panel.add(btstart);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(224, 255, 255));
-		panel_1.setBounds(10, 57, 414, 234);
+		panel_1.setBounds(0, 57, 571, 322);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JButton slide = new JButton("New button");
-		slide.setBounds(10, 0, 404, 223);
+		slide.setBounds(10, 0, 561, 311);
 		slide.setIcon(getIcon("slide1", slide.getWidth() + 100, slide.getHeight()));
 		
 		panel_1.add(slide);

@@ -41,7 +41,6 @@ public class Server {
 			iAddress = InetAddress.getLocalHost();
 			currentIp = iAddress.getHostAddress();
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return currentIp;

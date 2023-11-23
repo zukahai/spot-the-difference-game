@@ -29,9 +29,9 @@ public class ServerModel extends Thread {
 	}
 
 	public void restartGame() {
+		String newData = WorkThread.randomData();
 		for (Socket s : arrayListSocket) {
 			try {
-				String newData = "3 1 1 1";
 				data.setText(newData);
 				send("NewGame " + newData, s);
 			} catch (IOException e) {
@@ -39,7 +39,6 @@ public class ServerModel extends Thread {
 			}
 		}
 	}
-	
 	
 	public void run() {
 		while(true) {
@@ -54,26 +53,26 @@ public class ServerModel extends Thread {
 				System.out.println(socket);
 				workThread.start();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 	}
 
 	public static void main(String[] args) throws IOException {
 		new ServerModel(3333);
 	}
-
 }
 
 class WorkThread extends Thread{
 	DataSQLModel dataSQL_Model = new DataSQLModel();
 	JTextArea data;
-	public int n, x, y, color;
 	Socket socket;
 	ArrayList<Socket> arrayListSocket;
-	private int NumberOfImage = 54;
+	private static int NumberOfImage = ConfigServer.NumberOfImage;
+
+	public WorkThread() {
+		this.socket = new Socket();
+	}
 	
 	public WorkThread(Socket socket, JTextArea data) {
 		this.socket = socket;
@@ -95,11 +94,11 @@ class WorkThread extends Thread{
 		objectOutputStream.flush();
 	}
 	
-	public String randomData() {
-		n = (int) (Math.random() * 100000) % 5 + 3;
-		x = (int) (Math.random() * 100000) % n;
-		y = (int) (Math.random() * 100000) % n;
-		color = (int)(Math.random()*100000) % NumberOfImage + 1;
+	public static String randomData() {
+		int n = (int) (Math.random() * 100000) % 5 + 3;
+		int x = (int) (Math.random() * 100000) % n;
+		int y = (int) (Math.random() * 100000) % n;
+		int color = (int)(Math.random()*100000) % NumberOfImage + 1;
 		return n + " " + x + " " + y + " " + color;
 	}
 	

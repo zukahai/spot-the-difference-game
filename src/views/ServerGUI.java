@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import models.ConfigServer;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.Timer;
@@ -30,9 +33,6 @@ public class ServerGUI extends JFrame {
 	public int Nslide = 4;
 	public int indexSlide = 1;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,10 +45,8 @@ public class ServerGUI extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public ServerGUI() {
+		setTitle("Server Start");
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 723, 493);
 		contentPane = new JPanel();
@@ -74,7 +72,7 @@ public class ServerGUI extends JFrame {
 		lblNewLabel_1.setBounds(283, 22, 97, 14);
 		panel.add(lblNewLabel_1);
 		
-		port_tf = new JTextField("3333");
+		port_tf = new JTextField(ConfigServer.PORT + "");
 		port_tf.setBackground(new Color(224, 255, 255));
 		port_tf.setFont(new Font("Tahoma", Font.BOLD, 20));
 		port_tf.setBounds(352, 13, 107, 32);
@@ -83,7 +81,7 @@ public class ServerGUI extends JFrame {
 		
 		start = new JButton("Start");
 		start.setBackground(new Color(127, 255, 212));
-		start.setBounds(578, 11, 97, 37);
+		start.setBounds(558, 11, 117, 37);
 		panel.add(start);
 		
 		JSeparator separator = new JSeparator();
@@ -109,12 +107,11 @@ public class ServerGUI extends JFrame {
 		panel_1.add(slide);
 		setLocationRelativeTo(null);
 		setVisible(true);
+		setResizable(false);
 		
 		slide_timer = new Timer(1500, new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				indexSlide ++;
 				if (indexSlide > Nslide)
 					indexSlide = 1;
@@ -127,12 +124,12 @@ public class ServerGUI extends JFrame {
 	public void setOn() {
 		status.setText("ON");
 		status.setForeground(Color.GREEN);
-		start.setText("New Game");
+		start.setText(ConfigServer.textButtonStart);
 		start.setBackground(Color.yellow);
 	}
 
 	public boolean isStatusOn() {
-		return start.getText() == "New Game";
+		return start.getText().equals(ConfigServer.textButtonStart);
 	}
 	
 	private Icon getIcon(String name, int width, int height) {
