@@ -22,11 +22,22 @@ public class ServerModel extends Thread {
 		this.start();
 	}
 	
-	public void Send(String data, Socket s) throws IOException {
-		DataInputStream dataInputStream = new DataInputStream(s.getInputStream());
+	public void send(String data, Socket s) throws IOException {
 		DataOutputStream dataOutputStream = new DataOutputStream(s.getOutputStream());
 		dataOutputStream.writeUTF(data);
 		dataOutputStream.flush();
+	}
+
+	public void restartGame() {
+		for (Socket s : arrayListSocket) {
+			try {
+				String newData = "3 1 1 1";
+				data.setText(newData);
+				send("NewGame " + newData, s);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	
@@ -35,7 +46,7 @@ public class ServerModel extends Thread {
 			try {
 				Socket socket = this.serverSocket.accept();
 				arrayListSocket.add(socket);
-				Send("NewGame " + data.getText(), socket);
+				send("NewGame " + data.getText(), socket);
 				WorkThread workThread = new WorkThread(socket, data);
 				arrayListWorkThread.add(workThread);
 				for (WorkThread w : arrayListWorkThread)
@@ -51,8 +62,6 @@ public class ServerModel extends Thread {
 	}
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		
 		new ServerModel(3333);
 	}
 
@@ -76,7 +85,6 @@ class WorkThread extends Thread{
 	}
 	
 	public void Send(String data, Socket s) throws IOException {
-		DataInputStream dataInputStream = new DataInputStream(s.getInputStream());
 		DataOutputStream dataOutputStream = new DataOutputStream(s.getOutputStream());
 		dataOutputStream.writeUTF(data);
 		dataOutputStream.flush();
@@ -100,6 +108,7 @@ class WorkThread extends Thread{
 		String ans = s[1] + " " + s[2];
 		s = result.split(" ");
 		String ans2 = s[1] + " " + s[2];
+		System.out.println("[" + ans + " " + ans2 + "]");
 		return ans.equals(ans2);
 	}
 	
@@ -110,17 +119,18 @@ class WorkThread extends Thread{
 				String st = dataInputStream.readUTF();
 				String key[] = st.split(" ");
 				System.out.println("Client: " + st);
+				String result = data.getText();
+
 				if (key[0].equals("Click")) {
-				
-					if (check(st, data.getText())) {
+					if (check(st, result)) {
 						System.out.println("h");
 						String UserName = key[3];
 						dataSQL_Model.increasePoint(UserName);
-						String newData = randomData();
-						data.setText(newData);
+						result = randomData();
+						data.setText(result);
 						Send("+1", this.socket);
 						for (Socket s : arrayListSocket) {
-							Send("NewGame " + data.getText(), s);
+							Send("NewGame " + result, s);
 						}
 					}else {
 						Send("Block", this.socket);

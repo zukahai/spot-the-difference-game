@@ -9,23 +9,27 @@ import java.net.UnknownHostException;
 import models.ServerModel;
 import views.ServerGUI;
 
-public class server {
-	public server(){
+public class Server {
+	private ServerModel serverModel = null;
+	
+	public Server(){
 		ServerGUI server_GUI = new ServerGUI();
 		server_GUI.IP_lb.setText("IPv4: " + getIPv4());
 		server_GUI.start.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				try {
-					String text = server_GUI.port_tf.getText();
-					int port = Integer.parseInt(text);
-					new ServerModel(port);
-					server_GUI.setOn();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				if (!server_GUI.isStatusOn()) {
+					try {
+						String text = server_GUI.port_tf.getText();
+						int port = Integer.parseInt(text);
+						serverModel = new ServerModel(port);
+						server_GUI.setOn();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				} else {
+					System.out.println("New Game");
+					serverModel.restartGame();
 				}
 			}
 		});
@@ -44,6 +48,6 @@ public class server {
 	}
 	
 	public static void main(String[] args) {
-		new server();
+		new Server();
 	}
 }

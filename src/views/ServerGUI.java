@@ -127,6 +127,12 @@ public class ServerGUI extends JFrame {
 	public void setOn() {
 		status.setText("ON");
 		status.setForeground(Color.GREEN);
+		start.setText("New Game");
+		start.setBackground(Color.yellow);
+	}
+
+	public boolean isStatusOn() {
+		return start.getText() == "New Game";
 	}
 	
 	private Icon getIcon(String name, int width, int height) {

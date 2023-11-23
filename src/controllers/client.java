@@ -13,7 +13,7 @@ import views.ClientStartGUI;
 import views.ClientGUI;
 import views.LoginGUI;
 
-public class client extends Thread{
+public class Client extends Thread{
 	ClientModel client_Model;
 	ClientGUI client_GUI;
 	BlockGUI block_GUI;
@@ -21,7 +21,7 @@ public class client extends Thread{
 	BXHGUI bxh_GUI;
 	ClientStartGUI clientStart_GUI;
 	boolean Login = false;
-	public client() throws UnknownHostException, IOException {
+	public Client() throws UnknownHostException, IOException {
 		clientStart_GUI = new ClientStartGUI();
 		login_GUI = new LoginGUI();
 		login_GUI.setVisible(false);
@@ -164,6 +164,6 @@ public class client extends Thread{
 	}
 	
 	public static void main(String[] args) throws UnknownHostException, IOException {
-		new client();
+		new Client();
 	}
 }
