@@ -6,9 +6,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Panel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,10 +21,11 @@ public class ClientGUI extends JFrame{
 	public Panel p = new Panel();
 	Container cont;
 	JFrame client;
-	public int size =450;
+	public int size;
 	public int n = 4;
 	public ClientGUI(int n, int x, int y, int color) {
 		this.n = n;
+		size = Math.min(this.getWidthScreen(), this.getHeightScreen()) - 50;
 		client = new JFrame("Client");
 		cont = new Container();
 		cont = client.getContentPane();
@@ -87,9 +87,22 @@ public class ClientGUI extends JFrame{
 	public void Dispose() {
 		client.dispose();
 	}
-	
+
+	public int getWidthScreen() {
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
+        int screenWidth = (int) screenSize.getWidth();
+		return screenWidth;
+	}
+
+	public int getHeightScreen() {
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = toolkit.getScreenSize();
+		int screenHeight = (int) screenSize.getHeight();
+		return screenHeight;
+	}
 	public static void main(String[] args) {
 		ClientGUI client_GUI = new  ClientGUI(5, 0, 0,1);
-//		client_GUI.NewGame(10);
+		client_GUI.getWidthScreen();
 	}
 }
