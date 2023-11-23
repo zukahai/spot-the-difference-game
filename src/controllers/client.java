@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.Vector;
-
 import models.ClientModel;
 import views.BXHGUI;
 import views.BlockGUI;
