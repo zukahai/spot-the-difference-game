@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class ClientGUI extends JFrame{
+public class GameGUI extends JFrame{
 	public JButton board[][] = new JButton[100][100];
 	public JButton listUser_bt;
 	public JButton exit_bt;
@@ -23,7 +23,7 @@ public class ClientGUI extends JFrame{
 	JFrame client;
 	public int size;
 	public int n = 4;
-	public ClientGUI(int n, int x, int y, int color) {
+	public GameGUI(int n, int x, int y, int color) {
 		this.n = n;
 		size = Math.min(this.getWidthScreen(), this.getHeightScreen()) - 50;
 		client = new JFrame("Client");
@@ -73,9 +73,9 @@ public class ClientGUI extends JFrame{
 		JOptionPane.showMessageDialog(null, message);
 	}
 	
-	public ClientGUI NewGame(int n, int x, int y, int color) {
+	public GameGUI NewGame(int n, int x, int y, int color) {
 		client.dispose();
-		return new ClientGUI(n, x, y, color);
+		return new GameGUI(n, x, y, color);
 	}
 	
 	public void setTitle(String title, int Score) {
@@ -102,7 +102,7 @@ public class ClientGUI extends JFrame{
 		return screenHeight;
 	}
 	public static void main(String[] args) {
-		ClientGUI client_GUI = new  ClientGUI(5, 0, 0,1);
+		GameGUI client_GUI = new  GameGUI(5, 0, 0,1);
 		client_GUI.getWidthScreen();
 	}
 }

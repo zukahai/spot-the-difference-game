@@ -10,12 +10,12 @@ import models.ClientModel;
 import views.BXHGUI;
 import views.BlockGUI;
 import views.ClientStartGUI;
-import views.ClientGUI;
+import views.GameGUI;
 import views.LoginGUI;
 
 public class Client extends Thread{
 	ClientModel client_Model;
-	ClientGUI client_GUI;
+	GameGUI client_GUI;
 	BlockGUI block_GUI;
 	LoginGUI login_GUI;
 	BXHGUI bxh_GUI;
@@ -27,7 +27,7 @@ public class Client extends Thread{
 		login_GUI.setVisible(false);
 		block_GUI = new BlockGUI();
 		block_GUI.setVisible(false);
-		client_GUI = new ClientGUI(3, 1, 1, 1);
+		client_GUI = new GameGUI(3, 1, 1, 1);
 		client_GUI.setVisible(false);
 		
 		bxh_GUI = new BXHGUI();
