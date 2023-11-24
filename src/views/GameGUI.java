@@ -25,7 +25,8 @@ public class GameGUI extends JFrame{
 	public int n = 4;
 	public GameGUI(int n, int x, int y, int color) {
 		this.n = n;
-		size = Math.min(this.getWidthScreen(), this.getHeightScreen()) - 50;
+		size = Math.min(this.getWidthScreen(), this.getHeightScreen());
+		size = size * 5 / 6;
 		client = new JFrame("Client");
 		cont = new Container();
 		cont = client.getContentPane();
